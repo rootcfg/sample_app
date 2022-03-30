@@ -3,7 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.8'
 gem 'activerecord-jdbcpostgresql-adapter'
-
+gem 'pivot_table'
+gem 'caxlsx'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.5'
 gem 'importmap-rails'
