@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_29_145247) do
+ActiveRecord::Schema.define(version: 2022_04_01_124825) do
 
   create_table "microposts", force: :cascade do |t|
     t.text "content"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 2022_03_29_145247) do
     t.string "month"
     t.integer "count"
     t.string "filename"
+  end
+
+  create_table "tgt7s", force: :cascade do |t|
+    t.string "region"
+    t.string "month"
+    t.string "count"
+    t.string "supply_amount_sum"
+    t.string "buying_amount_sum"
+    t.index ["month", "region"], name: "index_tgt7s_on_month_and_region"
   end
 
   create_table "users", force: :cascade do |t|
