@@ -1,5 +1,3 @@
-require 'faker'
-
 Tgt7.delete_all
 1000.times do |time|
     Tgt7.create(
