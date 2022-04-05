@@ -1,5 +1,16 @@
-<% content_for(:html_title) { 'Sample App' } %>
-<h1>Sample App</h1>
-<p>
-  This is home page for <a href="https://railstutorial.com">Rails Tutorial</a>
-</p>
+<div class="h-800 p-5 bg-light border rounded-3">
+  
+  <h1>Welcome to the Sample App</h1>
+
+  <h2>This is a home page for 
+    <a href="https://railstutorial.com">Rails Tutorial</a>
+  </h2>
+  <p>
+    <%= link_to "Sign up now!", '#', class: "btn btn-outline-secondary" %>
+  </p>
+  <div class="row">
+     <%= image_tag "https://images.theconversation.com/files/443350/original/file-20220131-15-1ndq1m6.jpg",
+     size: "640x468", 
+     class: "img-thumbnail" %>
+  </div>   
+</div>
