@@ -7,18 +7,20 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags("application", shim: false) %>
+    <%= javascript_importmap_tags("application", shim: true) %>
   </head>
 
   <body>
     
     <div class="container py-3">
       <%= render "shared/navbar" %>
+      <%= render "shared/flash" %>
     </div>
 
     <div class="container py-4">
       <%= yield %>
       <%= render "shared/footer" %>
+      <%= debug(params) if Rails.env.development? %>
     </div>
 
   </body>
