@@ -1,11 +1,7 @@
 module SessionsHelper
 
   def log_in(user)
-    if !user.nil? && user.authenticate(params[:session][:password])
-      session[:user_id]    = user.id
-      session[:name]       = user.name
-      session[:email]      = user.email
-    end
+    session[:user_id] = user.id
   end
 
   def current_user
