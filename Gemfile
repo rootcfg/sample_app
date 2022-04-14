@@ -40,10 +40,10 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
-  gem 'pry-debugger-jruby', '~> 2.1'
   gem 'selenium-webdriver', '>= 4.0.0.rc1'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
   gem 'rails-controller-testing'
 end
 

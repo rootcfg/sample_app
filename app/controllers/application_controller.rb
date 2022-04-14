@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
-  
-  def hello
-    render html: "<h1>Hello</h1>".html_safe
-  end
+
+  protect_from_forgery with: :exception
+  include SessionsHelper
 
 end

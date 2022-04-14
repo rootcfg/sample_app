@@ -9,5 +9,8 @@ class User < ApplicationRecord
 
     has_secure_password :password
     validates :password, presence: true,     length: { minimum: 6, maximum: 30 }
-                              
+
+    def self.digest(password)
+        BCrypt::Password.create(password)
+    end
 end

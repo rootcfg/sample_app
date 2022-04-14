@@ -1,10 +1,20 @@
 require "test_helper"
+require 'database_cleaner'
 
 class UsersSignupTest < ActionDispatch::IntegrationTest
+
+  def setup
+    DatabaseCleaner.start
+    DatabaseCleaner.clean
+  end
+
   test "invalid sign up" do
     get sign_up_path
     assert_no_difference('User.count') do
-      post users_path, params: { user: { name: "", email: "awdaw@awdaw", password: "123123", password_confirmation: "321321" } }
+      post users_path, params: { user: { name: "",
+                                         email: "awdaw@awdaw",
+                                         password: "123123",
+                                         password_confirmation: "321321" } }
     end
     assert_template 'users/new'
   end
@@ -21,6 +31,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       }
     end
     user = User.last
+    assert is_logged_in?
     assert_redirected_to user
   end
 
