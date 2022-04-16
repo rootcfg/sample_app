@@ -2,12 +2,16 @@ ENV['RAILS_ENV'] ||= 'test'
 require_relative "../config/environment"
 require "rails/test_help"
 require "minitest/reporters"
+require 'database_cleaner'
+
 #Minitest::Reporters.use!
 
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers
   parallelize(workers: :number_of_processors, with: :threads)
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+  DatabaseCleaner.start
+  DatabaseCleaner.clean
   fixtures :all
 
   #Проверка залогинен ли пользователь

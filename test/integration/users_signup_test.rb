@@ -1,12 +1,6 @@
 require "test_helper"
-require 'database_cleaner'
 
 class UsersSignupTest < ActionDispatch::IntegrationTest
-
-  def setup
-    DatabaseCleaner.start
-    DatabaseCleaner.clean
-  end
 
   test "invalid sign up" do
     get sign_up_path
