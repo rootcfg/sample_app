@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     if params[:session][:email] && params[:session][:password]
       user = User.find_by_email(params[:session][:email])
       if helpers.log_in(user)
+        params[:session][:remember_me] == '1' ? remember(user) : forget(user)
         flash.now[:success] = "Welcome back!"
         redirect_to user
       else
@@ -16,7 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.destroy
+    helpers.log_out if logged_in?
     flash.now[:info] = "Goodbye!"
     redirect_to root_path
   end
